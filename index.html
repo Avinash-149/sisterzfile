@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sisterz n Farm</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background-color: #f5fff0;
-      color: #333;
-    }
+  font-family: Arial, sans-serif;
+  background: url('sisters/indiancow.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 20px;
+}
+
+
     header {
       background-color: #6b8e23;
       color: white;
       padding: 25px 10px;
       text-align: center;
     }
+
     nav {
-      background: #88b04b;
-      padding: 12px;
-      text-align: center;
-    }
+  background: #88b04b;
+  padding: 12px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
     nav a {
       color: white;
       margin: 0 18px;
@@ -29,21 +38,29 @@
       font-weight: 600;
       font-size: 16px;
     }
+
     .hero img {
       width: 100%;
       max-height: 400px;
       object-fit: cover;
     }
+
     section {
-      padding: 35px 20px;
-      text-align: center;
-    }
+  padding: 35px 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.85); /* transparent white */
+  margin: 20px;
+  border-radius: 10px;
+}
+
+
     footer {
       background-color: #6b8e23;
       color: white;
       text-align: center;
       padding: 15px;
     }
+
     ul {
       text-align: left;
       max-width: 700px;
@@ -51,9 +68,11 @@
       font-size: 18px;
       line-height: 1.8;
     }
+
     a {
       color: #2a5d00;
     }
+
     .ghee-images {
       display: flex;
       justify-content: center;
@@ -61,20 +80,99 @@
       flex-wrap: wrap;
       margin-top: 20px;
     }
-    .ghee-images img {
-      width: 100%;
+
+    .image-container {
+      position: relative;
       max-width: 400px;
-      border-radius: 8px;
+      text-align: center;
     }
+
+    .image-container img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    .image-container:hover img {
+      transform: scale(1.02);
+    }
+
+    .order-options {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      flex-direction: column;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .image-container:hover .order-options {
+      display: flex;
+    }
+
+    .order-button {
+      margin: 5px 0;
+      background-color: #9bd42a;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
     .quote-box {
       font-size: 20px;
       font-style: italic;
       color: #444;
       background: #eefadd;
       padding: 15px;
-      border-left: 5px solid #88b04b;
+      border-left: 5px solid #d9e7c3;
       max-width: 700px;
       margin: 20px auto;
+    }
+
+    /* FAQ Styles */
+    .faq-section {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 40px 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+    .faq-section h2 {
+      text-align: center;
+      color: #4b4b4b;
+      font-size: 28px;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 30px auto;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    details {
+      margin-bottom: 15px;
+      background-color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
     }
   </style>
 </head>
@@ -93,8 +191,9 @@
   </nav>
 
   <div class="hero">
-    <img src="photorealistic-view-cows-grazing-nature-outdoors.jpg" alt="Organic farm field">
+    <img src="sisters/1000ml.jpg" alt="Organic farm field">
   </div>
+
 
   <section id="about">
     <h2>Welcome to Sisterz n Farm 🌱</h2>
@@ -106,18 +205,45 @@
     </div>
   </section>
 
-  <section id="ghee-image" style="background-color:#fffbe6; padding: 30px;">
+  <section id="ghee-image" style="background-color: rgba(255, 255, 255, 0.85); margin: 20px; border-radius: 10px; padding: 35px 20px;">
+
     <h2>Our Pure Desi Ghee 🫘</h2>
     <div class="ghee-images">
-      <img src="ae84a195-d33b-4c41-8772-ea4b48eb5273.jpg" alt="Jar of desi ghee">
-      <img src="e8ed261f-42e9-4df9-82df-ed54f044772f.jpg" alt="Jar of desi ghee">
+      
+      <!-- First Jar -->
+      <div class="image-container">
+        <img src="sisters/ae84a195-d33b-4c41-8772-ea4b48eb5273.jpg" alt="Jar of desi ghee 1000ml">
+        <div class="order-options">
+          <a href="http://127.0.0.1:5500/ordernow2.html">
+            <button class="order-button">Order via Paytm</button>
+          </a>
+          <a href="https://wa.me/919442706325?text=Hi%2C%20I%20want%20to%20order%201000ml%20Desi%20Ghee%20from%20Sisterz%20n%20Farm" target="_blank">
+            <button class="order-button">Order via WhatsApp</button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Second Jar -->
+      <div class="image-container">
+        <img src="" alt="Jar of desi ghee 500ml">
+        <div class="order-options">
+          <a href="http://127.0.0.1:5500/ordernow2.html">
+            <button class="order-button">Order via Paytm</button>
+          </a>
+          <a href="https://wa.me/919442706325?text=Hi%2C%20I%20want%20to%20order%20500ml%20Desi%20Ghee%20from%20Sisterz%20n%20Farm" target="_blank">
+            <button class="order-button">Order via WhatsApp</button>
+          </a>
+        </div>
+      </div>
+
     </div>
+
     <p style="max-width:600px; margin:30px auto 0; font-size:18px;">
       Experience the richness of our homemade, pure desi ghee. Crafted traditionally and preserved for taste & nutrition.
     </p>
   </section>
 
-  <section id="benefits" style="background-color:#fffbe6;">
+<section id="benefits" style="background-color: rgba(255, 255, 255, 0.85); margin: 20px; border-radius: 10px; padding: 35px 20px;">
     <h2>Benefits of Desi Ghee 🫘</h2>
     <ul>
       <li><strong>Boosts Immunity:</strong> Rich in antioxidants, helps absorb vitamins.</li>
@@ -130,6 +256,107 @@
     </ul>
   </section>
 
+<section id="faq" style="background-color: rgba(255, 255, 255, 0.85); margin: 20px; border-radius: 10px; padding: 40px 20px;">
+  <h2 style="text-align:center; color:#4CAF50; margin-bottom:30px;">You Ask, We Answer ❓</h2>
+  
+  <div class="faq-container">
+
+    <div class="faq-item">
+      <button class="faq-question">Why Sisterz n Farm Desi Ghee is the best?</button>
+      <div class="faq-answer">
+        <p>We use traditional bilona methods and pure desi cow milk. Our cows are not injected with hormones, and produce limited but highly nutritious milk. This results in thicker, richer, healthier ghee.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">What is the consistency of this ghee?</button>
+      <div class="faq-answer">
+        <p>It varies with temperature – soft at room temperature, solid in winters. All forms are natural and safe to consume.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">How to check if ghee is pure?</button>
+      <div class="faq-answer">
+        <p>Heat a spoon of ghee in a pan. Pure ghee melts quickly and turns brown. Adulterated ghee melts slowly and stays yellow.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">What do we feed our cows?</button>
+      <div class="faq-answer">
+        <p>They freely graze on farms and are given natural fodder and buttermilk. No chemicals or hormone injections are used.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">What makes our ghee taste better?</button>
+      <div class="faq-answer">
+        <p>We churn curd, not malai. This preserves nutrients and enhances aroma, texture, and taste.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .faq-container {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .faq-item {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #d4eac2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 15px 20px;
+    text-align: left;
+    background-color: #e6f5d0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    color: #3c6e0b;
+    transition: background-color 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background-color: #d2ecb4;
+  }
+
+  .faq-answer {
+    padding: 0 20px 15px 20px;
+    display: none;
+    background-color: #ffffff;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .faq-answer.open {
+    display: block;
+  }
+</style>
+
+<script>
+  const faqButtons = document.querySelectorAll(".faq-question");
+
+  faqButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const answer = button.nextElementSibling;
+      answer.classList.toggle("open");
+    });
+  });
+</script>
+
+
   <section id="contact">
     <h2>Contact Us 📞</h2>
     <p>Email: <a href="mailto:procoderavinash@gmail.com">procoderavinash@gmail.com</a></p>
@@ -140,7 +367,5 @@
   <footer>
     <p>&copy; 2025 Sisterz n Farm. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
-
